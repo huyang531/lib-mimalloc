@@ -62,7 +62,7 @@
  * 4. Transition EBT allocator -> Mimalloc:
  *    We transition as soon as the TLS has been allocated and the %fs register
  *    set. This is checked at every EBT allocation by inspecting
- *    uk_thread_current()->prv which typically points to the thread local
+ *    uk_thread_current()->priv which typically points to the thread local
  *    storage. Since memory allocations might happen during Mimalloc's
  *    initialization itself (e.g. calls to malloc() by pthread) the early boot
  *    time allocator continues to satisfy requests until Mimalloc is ready
@@ -88,7 +88,7 @@ static inline int _tls_ready(void)
 	/* Is the thread local storage ready? */
 	struct uk_thread *current = uk_thread_current();
 
-	return current && current->prv != NULL;
+	return current && current->priv != NULL;
 }
 
 /* boot-time malloc interface */

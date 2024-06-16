@@ -41,6 +41,7 @@
 #define __LIBMIMALLOC_IMPL_H__
 
 #include <uk/alloc.h>
+#include <stddef.h>
 
 #ifdef __cplusplus
 extern "C" {
